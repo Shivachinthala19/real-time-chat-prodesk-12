@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 
 // Phase 1: Establish persistent connection to the Socket.io server
 // autoConnect: false → we manually connect after the user enters their username
-const socket = io("http://localhost:4000", {
+const socket = io(import.meta.env.VITE_BACKEND_URL || "http://localhost:4000", {
   autoConnect: false,
   reconnection: true,
   reconnectionAttempts: 5,
