@@ -1,0 +1,26 @@
+{
+  "name": "real-time-chat-prodesk",
+  "version": "1.0.0",
+  "description": "Real‑time chat application with Socket.io and Vite client",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "client": "vite",
+    "dev:all": "concurrently \"npm run dev\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "vite": "^5.2.11"
+  }
+}
