@@ -1,15 +1,15 @@
 import { io } from "socket.io-client";
 
-// Phase 1: Establish persistent connection to the Socket.io server
-// autoConnect: false → we manually connect after the user enters their username
-const socket = io(import.meta.env.VITE_BACKEND_URL || "http://localhost:4000", {
+const backendUrl = import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:4000`;
+
+const socket = io(backendUrl, {
+  transports: ['websocket', 'polling'],
   autoConnect: false,
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000,
 });
 
-// Phase 1: Log successful client handshake to the console
 socket.on("connect", () => {
   console.log(`✅ [HANDSHAKE] WebSocket connected → socket.id: ${socket.id}`);
 });

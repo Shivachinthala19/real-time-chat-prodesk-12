@@ -11,8 +11,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",   // Vite dev server or Prod URL
-    methods: ["GET", "POST"],
+    // Allow specific origins in production (Vercel) and any origin in development
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",") : true,
+    methods: ["GET", "POST"]
   },
 });
 
