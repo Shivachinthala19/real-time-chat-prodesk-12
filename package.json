@@ -9,7 +9,7 @@
     "dev": "nodemon server/index.js",
     "client": "vite",
     "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
-    "build": "vite build"
+    "build": "vite build client --outDir ../dist --emptyOutDir"
   },
   "keywords": [],
   "author": "",
